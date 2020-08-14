@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Welcome to Textutils!</strong> You can do anything with your text.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+  <div class="container">
+    <form action="/analyzer/" method= "post"> {% csrf_token%}
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Enter your text here!</label>
+        <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="6"></textarea>
+      </div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name="rp" class="custom-control-input" id="customSwitch1">
+          <label class="custom-control-label" for="customSwitch1">Remove Punctuation</label>
+        </div>
+      <div class="custom-control custom-switch">
+          <input type="checkbox" name="remove_newline" class="custom-control-input" id="customSwitch2">
+          <label class="custom-control-label" for="customSwitch2">Remove Newline</label>
+        </div>
+      <div class="custom-control custom-switch">
+          <input type="checkbox" name="remove_space" class="custom-control-input" id="customSwitch3">
+          <label class="custom-control-label" for="customSwitch3">Remove Extra space</label>
+        </div>
+      <div class="custom-control custom-switch">
+          <input type="checkbox" name="uppercase" class="custom-control-input" id="customSwitch4">
+          <label class="custom-control-label" for="customSwitch4">Uppercase</label>
+        </div>
+      <div class="custom-control custom-switch">
+          <input type="checkbox" name="count_char" class="custom-control-input" id="customSwitch5">
+          <label class="custom-control-label" for="customSwitch5">Char counter</label>
+        </div><br>
+      <button type="submit" class="btn btn-outline-success">Analyze Text</button>
+    </form>
+
+  </div>
+{% endblock %}
