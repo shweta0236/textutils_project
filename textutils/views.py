@@ -16,24 +16,11 @@ def about(request):
 def contact_us(request):
     return render(request,'contact_us.html')
 
-def personal_navigator(request):
-    s = """
-    <h2>Personal Navigator</h2>
-                        <a href = "https://www.codewithharry.com/videos/python-django-tutorials-hindi-6">Code With Harry</a><br>
-                        <a href = "https://www.google.com">Google</a><br>
-                        <a href = "https://www.stackoverflow.com">Stack Over Flow</a><br>
-                        <a href = "https://www.facebook.com">Facebook</a><br>
-                        <form action = "/ ">
-                        <button type= "submit">Back</button>
-                        </form>
-    """
-    return HttpResponse(s)
-
 def analyzer(request):
     #get data from textarea in text_analyzer.html
     djtext = request.POST.get('text','default')
 
-    #get data from checkbox in text_analyzer.html
+    #get data from index.html
     remove_punctuation = request.POST.get('rp','off')
     remove_newline = request.POST.get('remove_newline', 'off')
     uppercase = request.POST.get('uppercase', 'off')
